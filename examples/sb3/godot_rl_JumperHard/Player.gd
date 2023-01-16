@@ -155,8 +155,8 @@ func reset():
 	
 func set_action(action):
 	move_action = action["move"][0]
-	turn_action = action["turn"][0]
-	jump_action = action["jump"] == 1
+	turn_action = action["move"][1]
+	jump_action = action["move"][2] >= 0.7
 	
 func reset_if_done():
 	if done:
@@ -242,17 +242,17 @@ func zero_reward():
 func get_action_space():
 	return {
 		"move" : {
-			"size": 1,
+			"size": 3,
 			"action_type": "continuous"
-		},        
-			"turn" : {
-			"size": 1,
-			"action_type": "continuous"
-		},
-		"jump": {
-			"size": 2,
-			"action_type": "discrete"
-			}
+		}        
+#			"turn" : {
+#			"size": 1,
+#			"action_type": "continuous"
+#		},
+#		"jump": {
+#			"size": 2,
+#			"action_type": "discrete"
+#			}
 		}
 
 func get_done():

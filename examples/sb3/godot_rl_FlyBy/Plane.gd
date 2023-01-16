@@ -127,19 +127,24 @@ func get_obs_space():
 	}   
 func get_action_space():
 	return {
-		"turn" : {
-			"size": 1,
-			"action_type": "continuous"
-		},        
-		"pitch" : {
-		"size": 1,
+		
+		"move" : {
+			"size": 2,
 			"action_type": "continuous"
 		}
+#		"turn" : {
+#			"size": 1,
+#			"action_type": "continuous"
+#		},        
+#		"pitch" : {
+#		"size": 1,
+#			"action_type": "continuous"
+#		}
 	}
 
 func set_action(action):
 	turn_input = action["turn"][0]
-	pitch_input = action["pitch"][0]
+	pitch_input = action["move"][1]
 
 func _physics_process(delta):
 	n_steps +=1    

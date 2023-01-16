@@ -87,22 +87,26 @@ func get_obs_space():
 
 func get_action_space():
 	return {
-		"movement_action" : {
-			"size": 2,
+		"move" : {
+			"size": 6,
 			"action_type": "continuous"
-		},  
-		"look_action" : {
-			"size": 2,
-			"action_type": "continuous"
-		},      
-		"jump_action" : {
-			"size": 2,
-			"action_type": "discrete"
-		},
-		"shoot_action" : {
-			"size": 2,
-			"action_type": "discrete"
-		},
+		}
+#		"movement_action" : {
+#			"size": 2,
+#			"action_type": "continuous"
+#		},  
+#		"look_action" : {
+#			"size": 2,
+#			"action_type": "continuous"
+#		},      
+#		"jump_action" : {
+#			"size": 2,
+#			"action_type": "discrete"
+#		},
+#		"shoot_action" : {
+#			"size": 2,
+#			"action_type": "discrete"
+#		},
 	}
 
 func get_done():
@@ -112,10 +116,10 @@ func set_done_false():
 	done = false
 
 func set_action(action):	
-	movement_action = Vector2(clamp(action["movement_action"][0],-1.0,1.0), clamp(action["movement_action"][1],-1.0,1.0))
-	look_action =  Vector2(clamp(action["look_action"][0],-1.0,1.0), clamp(action["look_action"][1],-1.0,1.0))
-	jump_action = action["jump_action"] == 1
-	shoot_action = action["shoot_action"] == 1
+	movement_action = Vector2(clamp(action["move"][0],-1.0,1.0), clamp(action["move"][1],-1.0,1.0))
+	look_action =  Vector2(clamp(action["move"][2],-1.0,1.0), clamp(action["move"][3],-1.0,1.0))
+	jump_action = action["move"][4] >= 0.7
+	shoot_action = action["move"][5] >= 0.7
 
 
 func _physics_process(delta):

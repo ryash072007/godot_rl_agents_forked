@@ -7,11 +7,11 @@
 [ext_resource type="Script" path="res://AIController.gd" id="5_mm0y5"]
 [ext_resource type="Script" path="res://health_system.gd" id="8_jb03l"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xw4no"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u8vnq"]
 radius = 0.4
 height = 1.8
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yi4c2"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_23uj5"]
 radius = 0.35
 height = 1.76182
 
@@ -26,11 +26,11 @@ script = ExtResource("2_86nq6")
 
 [node name="HitBoxCollisionShape" type="CollisionShape3D" parent="PlayerHitBox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89461, 0)
-shape = SubResource("CapsuleShape3D_xw4no")
+shape = SubResource("CapsuleShape3D_u8vnq")
 
 [node name="WorldCollisionShape" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883338, 0)
-shape = SubResource("CapsuleShape3D_yi4c2")
+shape = SubResource("CapsuleShape3D_23uj5")
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40586, -0.0894096)

@@ -127,18 +127,22 @@ func get_obs_space():
 
 func get_action_space():
 	return {
-		"turn" : {
-			"size": 1,
+		"move" : {
+			"size": 3,
 			"action_type": "continuous"
-		},        
-		"accelerate" : {
-			"size": 2,
-			"action_type": "discrete"
-		},
-		"brake" : {
-			"size": 2,
-			"action_type": "discrete"
-		},
+		}
+#		"turn" : {
+#			"size": 1,
+#			"action_type": "continuous"
+#		},        
+#		"accelerate" : {
+#			"size": 2,
+#			"action_type": "discrete"
+#		},
+#		"brake" : {
+#			"size": 2,
+#			"action_type": "discrete"
+#		},
 	}
 
 func get_done():
@@ -146,9 +150,9 @@ func get_done():
 
 
 func set_action(action):	
-	turn_action = action["turn"][0]
-	acc_action = action["accelerate"] == 1
-	brake_action = action["brake"] == 1
+	turn_action = action["move"][0]
+	acc_action = action["move"][1] >= 0.7
+	brake_action = action["move"][2] >= 0.7
 # ----------------------------------------------------------------------------#
 
 func get_steer_target():
