@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btbb8iwulg14y"]
+
+[ext_resource type="ArrayMesh" uid="uid://bmafldwqk71je" path="res://resources/green_jeep.tres" id="1_ivi6j"]
+
+[node name="GreenJeep" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_ivi6j")
+skeleton = NodePath("")

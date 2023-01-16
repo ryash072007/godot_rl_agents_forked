@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6l4n51hs4j2x"]
+
+[ext_resource type="ArrayMesh" uid="uid://b7menhm5bg0rq" path="res://resources/taxi.tres" id="1_li306"]
+
+[node name="Taxi" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_li306")
+skeleton = NodePath("")

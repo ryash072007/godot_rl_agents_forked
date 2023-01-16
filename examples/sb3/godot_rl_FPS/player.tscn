@@ -1,0 +1,299 @@
+[gd_scene load_steps=9 format=3 uid="uid://baw16hyyjeoaf"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_0t6v1"]
+[ext_resource type="Script" path="res://PlayerHitBox.gd" id="2_86nq6"]
+[ext_resource type="PackedScene" uid="uid://c0q56uljpdjod" path="res://tbot_model.tscn" id="2_bwc6x"]
+[ext_resource type="Script" path="res://ExtendedRaycastSensor.gd" id="4_tqpox"]
+[ext_resource type="Script" path="res://AIController.gd" id="5_mm0y5"]
+[ext_resource type="Script" path="res://health_system.gd" id="8_jb03l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xw4no"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yi4c2"]
+radius = 0.35
+height = 1.76182
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_0t6v1")
+reload_speed_ms = 200.0
+
+[node name="PlayerHitBox" type="Area3D" parent="."]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource("2_86nq6")
+
+[node name="HitBoxCollisionShape" type="CollisionShape3D" parent="PlayerHitBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.89461, 0)
+shape = SubResource("CapsuleShape3D_xw4no")
+
+[node name="WorldCollisionShape" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.883338, 0)
+shape = SubResource("CapsuleShape3D_yi4c2")
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40586, -0.0894096)
+
+[node name="ThirdPersonCamera3d" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.639094, 0.511743, 2.7802)
+
+[node name="FirstPersonCamera3d" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128723, 0)
+current = true
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraPivot/FirstPersonCamera3d"]
+target_position = Vector3(0, 0, -100)
+
+[node name="AIController" type="Node3D" parent="CameraPivot" groups=["AGENT"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.40586, 0.0894096)
+script = ExtResource("5_mm0y5")
+
+[node name="WideRaycastSensor" type="Node3D" parent="CameraPivot/AIController"]
+transform = Transform3D(-1, 0, -8.74228e-08, -1.77636e-15, 1, 0, 8.74228e-08, 0, -1, 0, 1.54159, -0.124174)
+script = ExtResource("4_tqpox")
+collision_mask = 3
+boolean_class_mask = 2
+n_rays_width = 25.0
+n_rays_height = 5.0
+ray_length = 80.0
+cone_width = 120.0
+cone_height = 20.0
+collide_with_areas = true
+class_sensor = true
+
+[node name="@node_0 0@18777" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-3.83022, -4.22618, 8.21394)
+
+[node name="node_0 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-4.08218, -2.58819, 8.75426)
+
+[node name="node_0 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-4.2101, -0.871557, 9.02859)
+
+[node name="node_0 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-4.2101, 0.871557, 9.02859)
+
+[node name="node_0 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-4.08218, 2.58819, 8.75426)
+
+[node name="@node_0 5@18778" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-3.83022, 4.22618, 8.21394)
+
+[node name="node_1 0" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.3457, -4.22618, 8.75426)
+
+[node name="node_1 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.5, -2.58819, 9.33013)
+
+[node name="node_1 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.57834, -0.871557, 9.6225)
+
+[node name="node_1 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.57834, 0.871557, 9.6225)
+
+[node name="node_1 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.5, 2.58819, 9.33013)
+
+[node name="@node_1 5@18779" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-2.3457, 4.22618, 8.75426)
+
+[node name="node_2 0" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.789899, -4.22618, 9.02859)
+
+[node name="node_2 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.84186, -2.58819, 9.6225)
+
+[node name="node_2 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.868241, -0.871557, 9.92404)
+
+[node name="node_2 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.868241, 0.871557, 9.92404)
+
+[node name="node_2 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.84186, 2.58819, 9.6225)
+
+[node name="@node_2 5@18780" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(-0.789899, 4.22618, 9.02859)
+
+[node name="node_3 0" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.789899, -4.22618, 9.02859)
+
+[node name="node_3 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.84186, -2.58819, 9.6225)
+
+[node name="node_3 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.868241, -0.871557, 9.92404)
+
+[node name="node_3 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.868241, 0.871557, 9.92404)
+
+[node name="node_3 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.84186, 2.58819, 9.6225)
+
+[node name="@node_3 5@18781" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(0.789899, 4.22618, 9.02859)
+
+[node name="node_4 0" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.3457, -4.22618, 8.75426)
+
+[node name="node_4 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.5, -2.58819, 9.33013)
+
+[node name="node_4 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.57834, -0.871557, 9.6225)
+
+[node name="node_4 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.57834, 0.871557, 9.6225)
+
+[node name="node_4 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.5, 2.58819, 9.33013)
+
+[node name="@node_4 5@18782" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(2.3457, 4.22618, 8.75426)
+
+[node name="node_5 0" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(3.83022, -4.22618, 8.21394)
+
+[node name="node_5 1" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(4.08218, -2.58819, 8.75426)
+
+[node name="node_5 2" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(4.2101, -0.871557, 9.02859)
+
+[node name="node_5 3" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(4.2101, 0.871557, 9.02859)
+
+[node name="node_5 4" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(4.08218, 2.58819, 8.75426)
+
+[node name="@node_5 5@18783" type="RayCast3D" parent="CameraPivot/AIController/WideRaycastSensor"]
+target_position = Vector3(3.83022, 4.22618, 8.21394)
+
+[node name="NarrowRaycastSensor" type="Node3D" parent="CameraPivot/AIController"]
+transform = Transform3D(-1, 0, -8.74228e-08, -1.77636e-15, 1, 0, 8.74228e-08, 0, -1, 0, 1.54159, -0.124174)
+script = ExtResource("4_tqpox")
+collision_mask = 3
+boolean_class_mask = 2
+n_rays_width = 25.0
+n_rays_height = 25.0
+ray_length = 80.0
+cone_width = 20.0
+cone_height = 20.0
+collide_with_areas = true
+class_sensor = true
+
+[node name="@node_0 0@30122" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-3.83022, -4.22618, 8.21394)
+
+[node name="node_0 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-4.08218, -2.58819, 8.75426)
+
+[node name="node_0 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-4.2101, -0.871557, 9.02859)
+
+[node name="node_0 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-4.2101, 0.871557, 9.02859)
+
+[node name="node_0 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-4.08218, 2.58819, 8.75426)
+
+[node name="node_0 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-3.83022, 4.22618, 8.21394)
+
+[node name="node_1 0" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.3457, -4.22618, 8.75426)
+
+[node name="node_1 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.5, -2.58819, 9.33013)
+
+[node name="node_1 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.57834, -0.871557, 9.6225)
+
+[node name="node_1 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.57834, 0.871557, 9.6225)
+
+[node name="node_1 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.5, 2.58819, 9.33013)
+
+[node name="node_1 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-2.3457, 4.22618, 8.75426)
+
+[node name="node_2 0" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.789899, -4.22618, 9.02859)
+
+[node name="node_2 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.84186, -2.58819, 9.6225)
+
+[node name="node_2 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.868241, -0.871557, 9.92404)
+
+[node name="node_2 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.868241, 0.871557, 9.92404)
+
+[node name="node_2 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.84186, 2.58819, 9.6225)
+
+[node name="node_2 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(-0.789899, 4.22618, 9.02859)
+
+[node name="node_3 0" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.789899, -4.22618, 9.02859)
+
+[node name="node_3 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.84186, -2.58819, 9.6225)
+
+[node name="node_3 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.868241, -0.871557, 9.92404)
+
+[node name="node_3 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.868241, 0.871557, 9.92404)
+
+[node name="node_3 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.84186, 2.58819, 9.6225)
+
+[node name="node_3 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(0.789899, 4.22618, 9.02859)
+
+[node name="node_4 0" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.3457, -4.22618, 8.75426)
+
+[node name="node_4 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.5, -2.58819, 9.33013)
+
+[node name="node_4 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.57834, -0.871557, 9.6225)
+
+[node name="node_4 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.57834, 0.871557, 9.6225)
+
+[node name="node_4 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.5, 2.58819, 9.33013)
+
+[node name="node_4 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(2.3457, 4.22618, 8.75426)
+
+[node name="node_5 0" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(3.83022, -4.22618, 8.21394)
+
+[node name="node_5 1" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(4.08218, -2.58819, 8.75426)
+
+[node name="node_5 2" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(4.2101, -0.871557, 9.02859)
+
+[node name="node_5 3" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(4.2101, 0.871557, 9.02859)
+
+[node name="node_5 4" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(4.08218, 2.58819, 8.75426)
+
+[node name="node_5 5" type="RayCast3D" parent="CameraPivot/AIController/NarrowRaycastSensor"]
+target_position = Vector3(3.83022, 4.22618, 8.21394)
+
+[node name="TbotModel" parent="." instance=ExtResource("2_bwc6x")]
+
+[node name="HealthSystem" type="Node" parent="."]
+script = ExtResource("8_jb03l")
+
+[connection signal="area_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_area_entered"]

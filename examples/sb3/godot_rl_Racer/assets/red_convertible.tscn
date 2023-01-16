@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bryvkjw068gsh"]
+
+[ext_resource type="ArrayMesh" uid="uid://45kjpktk2ec4" path="res://resources/red_convertible.tres" id="1_6gtln"]
+
+[node name="RedConvertible" type="MeshInstance3D"]
+transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
+mesh = ExtResource("1_6gtln")
+skeleton = NodePath("")

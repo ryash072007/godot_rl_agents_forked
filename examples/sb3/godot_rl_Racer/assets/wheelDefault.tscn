@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7ev21tk2uwfl"]
+
+[ext_resource type="ArrayMesh" uid="uid://c0bkrea2exe62" path="res://resources/wheelDefault.tres" id="1_vq5cm"]
+
+[node name="wheelDefault" type="Node3D"]
+
+[node name="wheelDefault2" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_vq5cm")
+skeleton = NodePath("")

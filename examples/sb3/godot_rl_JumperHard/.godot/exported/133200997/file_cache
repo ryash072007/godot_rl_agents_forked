@@ -1,0 +1,13 @@
+res://addons/godot_rl_agents/sensors/sensors_2d/ExampleRaycastSensor2D.tscn::633a89120f47fd16d8509d7bf62bdcc6::1667837398::res://.godot/exported/133200997/export-5127fc3fc2907f1e87ac8e869558593d-ExampleRaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.tscn::47f05d8501daa604d78b8ed9fcacbae5::1667837398::res://.godot/exported/133200997/export-7454c66d21916090bf5dc7766fa8629a-RaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/ExampleRaycastSensor3D.tscn::5132e3ace4e34f1809af5ab3b83b467f::1671719207::res://.godot/exported/133200997/export-1222b1ceeacbc57c3f8fe0e4235d9be0-ExampleRaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.tscn::cda0f7aad12ff3fe4c995244863b3bf0::1667837398::res://.godot/exported/133200997/export-1cc1ad7ce1f98ed0c4cee4b060bc26fd-RaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RGBCameraSensor3D.tscn::00bc7933716a6fae1ba344bbd9a386a2::1667837398::res://.godot/exported/133200997/export-d1d9cc1906d18d9a32f853b74a4d90f4-RGBCameraSensor3D.scn
+res://BatchEnvs.tscn::f71f4486ff3cce9ec9274f3ff155809e::1671719207::res://.godot/exported/133200997/export-e0c93c3e5af95d0922ba36d1569eeaa1-BatchEnvs.scn
+res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1667575100::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://JumperHarder.tscn::15a22ffb6c0da4904e697f49b7c591a5::1671719207::res://.godot/exported/133200997/export-5e4ac73442be36e406bc6b51c6343bcc-JumperHarder.scn
+res://Player.tscn::4de00be7b927ab794b43be85db78b44e::1671719344::res://.godot/exported/133200997/export-90e1ff3baa03524a506ff0f7a9d78dcf-Player.scn
+res://PlayerExample.tscn::4b0f5d67a5d68f40e37c7a8b9ade68fb::1667575100::res://.godot/exported/133200997/export-58ed8ab7104307fe7e3b5b8159d0ad71-PlayerExample.scn
+res://Robot.tscn::d3507688182a35c99d181f3100c92361::1671541791::res://.godot/exported/133200997/export-3f529fed70430038310ab41ff1962c78-Robot.scn
+res://robot2.tscn::b20873128cd03b6b3efba5ea483c3a31::1671719207::res://.godot/exported/133200997/export-cdcdd33d18c407aa7ab6d544d6babf8a-robot2.scn
+res://robot2.tres::420bafada7c3822d74c77fceeb529076::1671719184::res://.godot/exported/133200997/export-e7ea9bef01bbe6809bd652cd7e36ad8b-robot2.res

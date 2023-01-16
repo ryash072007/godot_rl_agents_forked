@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://x4bpkxih2cfc"]
+
+[ext_resource type="ArrayMesh" uid="uid://cnlwp0bhhbyrn" path="res://resources/hatchbackSports.tres" id="1_bvp3m"]
+
+[node name="hatchbackSports" type="Node3D"]
+
+[node name="hatchbackSports2" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="hatchbackSports2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31012e-14, 0.2, -0.15)
+mesh = ExtResource("1_bvp3m")
+skeleton = NodePath("")

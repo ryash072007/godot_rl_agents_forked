@@ -1,0 +1,8 @@
+res://addons/godot_rl_agents/sensors/sensors_2d/ExampleRaycastSensor2D.tscn::633a89120f47fd16d8509d7bf62bdcc6::1667837398::res://.godot/exported/133200997/export-5127fc3fc2907f1e87ac8e869558593d-ExampleRaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.tscn::47f05d8501daa604d78b8ed9fcacbae5::1667837398::res://.godot/exported/133200997/export-7454c66d21916090bf5dc7766fa8629a-RaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/ExampleRaycastSensor3D.tscn::5132e3ace4e34f1809af5ab3b83b467f::1671457020::res://.godot/exported/133200997/export-1222b1ceeacbc57c3f8fe0e4235d9be0-ExampleRaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.tscn::cda0f7aad12ff3fe4c995244863b3bf0::1667837398::res://.godot/exported/133200997/export-1cc1ad7ce1f98ed0c4cee4b060bc26fd-RaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RGBCameraSensor3D.tscn::00bc7933716a6fae1ba344bbd9a386a2::1667837398::res://.godot/exported/133200997/export-d1d9cc1906d18d9a32f853b74a4d90f4-RGBCameraSensor3D.scn
+res://BallChase.tscn::bec71c1b0de521cd6f9af90031eb95d6::1671705526::res://.godot/exported/133200997/export-f42ac285715e233e30405f3a6a1edaf9-BallChase.scn
+res://BatchEnvs.tscn::ce612b142e703eea569bb6f24e6fa56b::1671705526::res://.godot/exported/133200997/export-e0c93c3e5af95d0922ba36d1569eeaa1-BatchEnvs.scn
+res://default_env.tres::a52129f071fffbd20a6013a6c0edec1e::1667490485::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res

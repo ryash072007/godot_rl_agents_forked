@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ig7b453158tn"]
+
+[ext_resource type="ArrayMesh" uid="uid://bwn4cxsbbuog3" path="res://resources/police1.tres" id="1_jnlip"]
+[ext_resource type="ArrayMesh" uid="uid://se10yfffupyv" path="res://resources/police2.tres" id="2_p335c"]
+
+[node name="police" type="Node3D"]
+
+[node name="police2" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="police2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.15)
+mesh = ExtResource("1_jnlip")
+skeleton = NodePath("")
+
+[node name="grill" type="MeshInstance3D" parent="police2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.37417e-14, 0.274228, -1.45)
+mesh = ExtResource("2_p335c")
+skeleton = NodePath("")

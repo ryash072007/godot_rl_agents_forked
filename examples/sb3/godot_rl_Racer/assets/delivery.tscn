@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw5xmatek7g7x"]
+
+[ext_resource type="ArrayMesh" uid="uid://yehw153g1b13" path="res://resources/delivery1.tres" id="1_d626v"]
+[ext_resource type="ArrayMesh" uid="uid://ygy3sukghg4j" path="res://assets/delivery2.tres" id="2_amubv"]
+
+[node name="delivery" type="Node3D"]
+
+[node name="delivery2" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="delivery2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+mesh = ExtResource("1_d626v")
+skeleton = NodePath("")
+
+[node name="door" type="MeshInstance3D" parent="delivery2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1.475)
+mesh = ExtResource("2_amubv")
+skeleton = NodePath("")

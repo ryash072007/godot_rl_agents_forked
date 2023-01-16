@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5f17vqo2op"]
+
+[ext_resource type="ArrayMesh" uid="uid://c78ynrbhldl24" path="res://resources/firetruck1.tres" id="1_gf5iv"]
+[ext_resource type="ArrayMesh" uid="uid://ccotpltt0xol4" path="res://resources/firetruck2.tres" id="2_iv3yp"]
+
+[node name="firetruck" type="Node3D"]
+
+[node name="firetruck2" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="firetruck2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59888e-14, 0.2, 0.05)
+mesh = ExtResource("1_gf5iv")
+skeleton = NodePath("")
+
+[node name="grill" type="MeshInstance3D" parent="firetruck2/body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.79664e-14, 0.0742279, -1.65)
+mesh = ExtResource("2_iv3yp")
+skeleton = NodePath("")

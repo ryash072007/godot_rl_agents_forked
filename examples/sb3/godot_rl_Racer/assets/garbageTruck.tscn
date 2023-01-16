@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7v2h8ye43n4q"]
+
+[ext_resource type="ArrayMesh" uid="uid://dja87ddvx0pcl" path="res://resources/garbageTruck1.tres" id="1_t0x8e"]
+[ext_resource type="ArrayMesh" uid="uid://bgvyrlebh2knq" path="res://resources/garbageTruck2.tres" id="2_0llv4"]
+
+[node name="garbageTruck" type="Node3D"]
+
+[node name="garbageTruck2" type="Node3D" parent="."]
+
+[node name="arm" type="MeshInstance3D" parent="garbageTruck2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.88765e-15, 0.482139, -0.324741)
+mesh = ExtResource("1_t0x8e")
+skeleton = NodePath("")
+
+[node name="body" type="MeshInstance3D" parent="garbageTruck2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -0.1)
+mesh = ExtResource("2_0llv4")
+skeleton = NodePath("")

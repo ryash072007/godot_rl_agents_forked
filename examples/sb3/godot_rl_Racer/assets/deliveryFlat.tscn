@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://xk2plpcosvsf"]
+
+[ext_resource type="ArrayMesh" uid="uid://ctrvdvniaqy8d" path="res://resources/deliveryFlat.tres" id="1_ptoss"]
+
+[node name="deliveryFlat" type="Node3D"]
+
+[node name="deliveryFlat2" type="Node3D" parent="."]
+
+[node name="body" type="MeshInstance3D" parent="deliveryFlat2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59888e-14, 0.2, 0)
+mesh = ExtResource("1_ptoss")
+skeleton = NodePath("")

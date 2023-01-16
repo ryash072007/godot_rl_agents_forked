@@ -1,0 +1,10 @@
+res://addons/godot_rl_agents/sensors/sensors_2d/ExampleRaycastSensor2D.tscn::633a89120f47fd16d8509d7bf62bdcc6::1667837398::res://.godot/exported/133200997/export-5127fc3fc2907f1e87ac8e869558593d-ExampleRaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_2d/RaycastSensor2D.tscn::47f05d8501daa604d78b8ed9fcacbae5::1667837398::res://.godot/exported/133200997/export-7454c66d21916090bf5dc7766fa8629a-RaycastSensor2D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/ExampleRaycastSensor3D.tscn::5132e3ace4e34f1809af5ab3b83b467f::1671457020::res://.godot/exported/133200997/export-1222b1ceeacbc57c3f8fe0e4235d9be0-ExampleRaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.tscn::cda0f7aad12ff3fe4c995244863b3bf0::1667837398::res://.godot/exported/133200997/export-1cc1ad7ce1f98ed0c4cee4b060bc26fd-RaycastSensor3D.scn
+res://addons/godot_rl_agents/sensors/sensors_3d/RGBCameraSensor3D.tscn::00bc7933716a6fae1ba344bbd9a386a2::1667837398::res://.godot/exported/133200997/export-d1d9cc1906d18d9a32f853b74a4d90f4-RGBCameraSensor3D.scn
+res://default_env.tres::442562f5b9938c5240921614c51c1337::1667657260::res://.godot/exported/133200997/export-7cf3fd67ad9f55210191d77b582b8209-default_env.res
+res://FlyBy.tscn::2a7ae6ccf23258574495d3d5c6394333::1671724260::res://.godot/exported/133200997/export-c628839b8bb92f2be715d5f47c258437-FlyBy.scn
+res://Goal.tscn::1616bdcea875f20a747e3939cdbed850::1667657260::res://.godot/exported/133200997/export-0b7a851b1f210f5434bf151b5109f9ac-Goal.scn
+res://Plane.tscn::daeb9afbe69f874652fa58581952f854::1671711724::res://.godot/exported/133200997/export-d5204881b6152f05e6c5952a1722589a-Plane.scn
+res://PlaneModel.tscn::c890c0ebbc20377ca85f8dfb07bc0a3e::1667657259::res://.godot/exported/133200997/export-3723cf4da6c6f9d9f8b5c1b7a56399b9-PlaneModel.scn
