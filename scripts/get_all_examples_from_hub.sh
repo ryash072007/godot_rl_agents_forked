@@ -5,5 +5,5 @@ for EXAMPLE in ${EXAMPLE_NAMES[@]}; do
     echo "Downloading example: $EXAMPLE"
     gdrl.env_from_hub -r edbeeching/godot_rl_$EXAMPLE
 
-    chmod +x examples/godot_rl_$EXAMPLE/bin/$EXAMPLE.x86_64
+    # chmod +x examples/godot_rl_$EXAMPLE/bin/$EXAMPLE.x86_64
 done

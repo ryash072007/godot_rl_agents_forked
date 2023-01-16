@@ -1,3 +1,4 @@
 {
-    "python.formatting.provider": "black"
+    "python.formatting.provider": "black",
+    "godot_tools.editor_path": "c:\\Users\\ryash\\Desktop\\Godot_v4.0-beta12_win64.exe"
 }
