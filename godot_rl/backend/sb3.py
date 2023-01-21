@@ -34,27 +34,99 @@ def get_args():
     )
     parser.add_argument(
         "--iterations",
-        default=20000,
+        default=2000000,
         type=int,
         help="How many iterations to run",
+    )
+    parser.add_argument(
+        "--save_every_iterations",
+        default=1000,
+        type=int,
+        help="After every how many iterations to save model",
+    )
+    parser.add_argument(
+        "--save_path",
+        default="_",
+        type=str,
+        help="Location of save path, example: save/model"
+    )
+    parser.add_argument(
+        "--load_path",
+        default="_",
+        type=str,
+        help="Where to load model from, same as save_path"
+    )
+    parser.add_argument(
+        "--continue_training",
+        default="true",
+        type=str, 
+        help="Whether to continue training or be deterministic (Only if --load_path is specified)"
+    )
+    parser.add_argument(
+        "--log",
+        default="true",
+        type=str,
+        help="Log?"
     )
 
     return parser.parse_known_args()
 
 def main():
     args, extras = get_args()
-
+    print(args)
     env = StableBaselinesGodotEnv(env_path=args.env_path)
+    model = ""
 
-    model = PPO(
-        "MultiInputPolicy",
-        env,
-        ent_coef=0.0001,
-        verbose=2,
-        n_steps=32,
-        tensorboard_log="logs/log",
-    )
-    model.learn(args.iterations)
+    if args.load_path != "_":
+        model = PPO.load(args.load_path, env)
+    elif args.save_path != "_":
+        if args.log == "true":
+            model = PPO(
+                    "MultiInputPolicy",
+                    env,
+                    ent_coef=0.0001,
+                    verbose=2,
+                    n_steps=32,
+                    tensorboard_log=args.save_path,
+                )
+        else:
+            model = PPO(
+                    "MultiInputPolicy",
+                    env,
+                    ent_coef=0.0001,
+                    verbose=2,
+                    n_steps=32
+                )
+    else:
+        if args.log == "true":
+            model = PPO(
+                    "MultiInputPolicy",
+                    env,
+                    ent_coef=0.0001,
+                    verbose=2,
+                    n_steps=32,
+                    tensorboard_log="logs/log",
+                )
+        else:
+            model = PPO(
+                    "MultiInputPolicy",
+                    env,
+                    ent_coef=0.0001,
+                    verbose=2,
+                    n_steps=32
+                )
+    
+    if args.continue_training == "true":
+        if args.save_path != "_": model.save(args.save_path)
+        for i in range(0, args.iterations, args.save_every_iterations):
+            model.learn(args.save_every_iterations)
+            if args.save_path != "_": model.save(args.save_path)
+    else:
+        # env = model.get_env()
+        obs = env.reset()
+        for i in range(args.iterations):
+            action, _states = model.predict(obs)
+            obs, rewards, dones, info = env.step(action)
 
     print("closing env")
     env.close()
