@@ -5,6 +5,7 @@ from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env.base_vec_env import VecEnv
 from godot_rl.core.godot_env import GodotEnv
 from godot_rl.core.utils import lod_to_dol
+import time
 
 def get_args():
     parser = argparse.ArgumentParser(allow_abbrev=False)
@@ -40,7 +41,7 @@ def get_args():
     )
     parser.add_argument(
         "--save_every_iterations",
-        default=1000,
+        default=2000000,
         type=int,
         help="After every how many iterations to save model",
     )
@@ -68,6 +69,12 @@ def get_args():
         type=str,
         help="Log?"
     )
+    parser.add_argument(
+        "--learning_rate",
+        default=0.0003,
+        type=float,
+        help="Learning Rate"
+    )
 
     return parser.parse_known_args()
 
@@ -88,6 +95,7 @@ def main():
                     verbose=2,
                     n_steps=32,
                     tensorboard_log=args.save_path,
+                    learning_rate=args.learning_rate
                 )
         else:
             model = PPO(
@@ -95,7 +103,8 @@ def main():
                     env,
                     ent_coef=0.0001,
                     verbose=2,
-                    n_steps=32
+                    n_steps=32,
+                    learning_rate=args.learning_rate
                 )
     else:
         if args.log == "true":
@@ -106,6 +115,7 @@ def main():
                     verbose=2,
                     n_steps=32,
                     tensorboard_log="logs/log",
+                    learning_rate=args.learning_rate
                 )
         else:
             model = PPO(
@@ -113,14 +123,20 @@ def main():
                     env,
                     ent_coef=0.0001,
                     verbose=2,
-                    n_steps=32
+                    n_steps=32,
+                    learning_rate=args.learning_rate
                 )
     
     if args.continue_training == "true":
-        if args.save_path != "_": model.save(args.save_path)
+        t = time.localtime()
+        current_time = time.strftime("_%H_%M_%S", t)
+        if args.save_path != "_": model.save(args.save_path + current_time)
         for i in range(0, args.iterations, args.save_every_iterations):
+            print("Iterations done: " + str(i))
             model.learn(args.save_every_iterations)
-            if args.save_path != "_": model.save(args.save_path)
+            t = time.localtime()
+            current_time = time.strftime("_%H_%M_%S", t)
+            if args.save_path != "_": model.save(args.save_path + current_time)
     else:
         # env = model.get_env()
         obs = env.reset()
